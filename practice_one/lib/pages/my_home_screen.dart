@@ -124,7 +124,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                  minimumSize: const Size(350, 0),
                  padding: const EdgeInsets.symmetric(vertical: 12),
                  
-                 side: BorderSide(
+                 side: const BorderSide(
                   width: 1,
                   color: Colors.black
                  )
