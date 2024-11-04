@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pinput/pinput.dart';
 
 class OptRegScreen extends StatefulWidget {
   const OptRegScreen({super.key});
@@ -58,40 +59,57 @@ class OptRegScreenState extends State<OptRegScreen> {
               ),
             ),
             const SizedBox(
-              height: 100,
+              height: 80,
             ),
             SizedBox(
               width: 400,
-              child: TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "আপনার মোবাইল নাম্বার প্রদান করুন";
-                  }
-                  return null;
-                },
-                controller: phoneTextEditorController,
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  hintText: "মোবাইল নাম্বার লিখুন",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: Colors.black)),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: Colors.black),
-                  ),
-                ),
+              child: otpPin()
               ),
-            ),
             const SizedBox(
               height: 250,
             ),
-            ElevatedButton(
-                onPressed: () {
+            button("OTP নিশ্চিত করুন", const Color(0xff15803D) , Colors.white, false, (){}),
+            const SizedBox(
+              height: 20,
+            ),
+            button("পুনরায় OTP পাঠান", Colors.white, Colors.black, true, (){})
+          ],
+        ),
+      ),
+    );
+  }
+
+  // OTP Code
+  Widget otpPin(){
+    return Pinput(
+      length: 6,
+      defaultPinTheme: _defaultPinTheme,
+      keyboardType: TextInputType.number,
+    );
+  }
+
+// OTP section theme
+  final _defaultPinTheme = PinTheme(
+    width: 56,
+    height: 60,
+    textStyle: const TextStyle(
+      fontSize: 26,
+      color: Colors.grey,
+    ),
+    
+     decoration: BoxDecoration(
+      
+      color: Colors.transparent,
+      borderRadius: BorderRadius.circular(10),
+      border: Border.all(color: Colors.black)
+     )
+  );
+
+// Button set
+  Widget button(String btnName, var backgroundColor, var foregroundColor, bool borderSide, var onPressed){
+    return ElevatedButton(
+                onPressed: onPressed,
+                /* () {
                   if (_formKey.currentState?.validate() ?? false) {
                     Navigator.push(
                         context,
@@ -99,21 +117,22 @@ class OptRegScreenState extends State<OptRegScreen> {
                             builder: (context) => const OptRegScreen()));
                   }
                 },
+                */
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xff15803D),
-                    foregroundColor: Colors.white,
+                    backgroundColor: backgroundColor,
+                    foregroundColor: foregroundColor,
                     minimumSize: const Size(370, 0),
-                    padding: const EdgeInsets.symmetric(vertical: 12)),
-                child: const Text(
-                  "OTP নিশ্চিত করুন",
-                  style: TextStyle(fontSize: 20),
-                )),
-            const SizedBox(
-              height: 20,
-            ),
-          ],
-        ),
-      ),
-    );
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    side: borderSide ? const BorderSide(
+                    width: 1,
+                    color: Colors.black
+                   ) : null
+                    ),
+                    
+                child:  Text(
+                  btnName,
+                  style: const TextStyle(fontSize: 20),
+                )
+                );
   }
 }

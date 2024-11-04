@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pinput/pinput.dart';
 import 'package:practice_one/opt_reg_screen.dart';
 
 class PhoneNumRegScreen extends StatefulWidget {
@@ -63,7 +64,8 @@ class _PhoneNumRegScreenState extends State<PhoneNumRegScreen> {
             ),
             SizedBox(
               width: 400,
-              child: TextFormField(
+              child: 
+              TextFormField(
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "আপনার মোবাইল নাম্বার প্রদান করুন";
@@ -117,4 +119,26 @@ class _PhoneNumRegScreenState extends State<PhoneNumRegScreen> {
       ),
     );
   }
+
+  // OTP Code
+  Widget otpPin(){
+    return Pinput(
+      length: 6,
+      defaultPinTheme: _defaultPinTheme,
+    );
+  }
+
+  final _defaultPinTheme = PinTheme(
+    width: 56,
+    height: 60,
+    textStyle: const TextStyle(
+      fontSize: 26,
+      color: Colors.grey,
+    ),
+     decoration: BoxDecoration(
+      color: Colors.grey.shade700,
+      borderRadius: BorderRadius.circular(10),
+      border: Border.all(color: Colors.transparent)
+     )
+  );
 }

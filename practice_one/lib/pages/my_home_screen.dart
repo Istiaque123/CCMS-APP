@@ -51,28 +51,12 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
             const SizedBox(
               height: 150,
             ),
-            ElevatedButton(
-              onPressed: (){
-                 Navigator.push(
-                  context, 
-                  MaterialPageRoute(builder: (context) => const PhoneNumRegScreen())
+            button('রেজিস্ট্রেশন', const Color(0xff15803D), Colors.white, false, (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const PhoneNumRegScreen()) 
                 );
-              }, 
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xff15803D),
-                foregroundColor: Colors.white,
-                 minimumSize: const Size(350, 0),
-                 padding: const EdgeInsets.symmetric(vertical: 12)
-
-              ),
-
-              child: const Text(
-                "রেজিস্ট্রেশন",
-                style: TextStyle(
-                  fontSize: 20
-                ),
-                )
-              ),
+            }),
               const SizedBox(height: 20,),
 
               Row(
@@ -124,34 +108,36 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
               const SizedBox(height: 20,),
               Padding(
                 padding: const EdgeInsets.only(bottom: 50),
-                child: ElevatedButton(
-                onPressed: (){
-                 
-                }, 
-                style: ElevatedButton.styleFrom(
-                  backgroundColor:  Colors.white,
-                  foregroundColor: Colors.black,
-                   minimumSize: const Size(350, 0),
-                   padding: const EdgeInsets.symmetric(vertical: 12),
-                   
-                   side: const BorderSide(
-                    width: 1,
-                    color: Colors.black
-                   )
-                
-                ),
-                
-                child: const Text(
-                  "লগইন",
-                  style: TextStyle(
-                    fontSize: 20
-                  ),
-                  )
-                ),
+                child: button("লগইন",  Colors.white, Colors.black, true, (){}),
               ),
 
         ],
       ),
     );
+  }
+
+  Widget button(String btnName, var backgroundColor, var foregroundColor, bool borderSide, onPress){
+    return ElevatedButton(
+                onPressed: onPress, 
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:  backgroundColor,
+                  foregroundColor: foregroundColor,
+                   minimumSize: const Size(350, 0),
+                   padding: const EdgeInsets.symmetric(vertical: 12),
+                   
+                   side: borderSide ? const BorderSide(
+                    width: 1,
+                    color: Colors.black
+                   ): null
+                
+                ),
+                
+                child:  Text(
+                  btnName,
+                  style: const TextStyle(
+                    fontSize: 20
+                  ),
+                  )
+                );
   }
 }
