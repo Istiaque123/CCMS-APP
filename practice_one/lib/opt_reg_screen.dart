@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:practice_one/opt_reg_screen.dart';
 
-class PhoneNumRegScreen extends StatefulWidget {
-  const PhoneNumRegScreen({super.key});
+class OptRegScreen extends StatefulWidget {
+  const OptRegScreen({super.key});
 
   @override
-  State<PhoneNumRegScreen> createState() => _PhoneNumRegScreenState();
+  State<OptRegScreen> createState() => OptRegScreenState();
 }
 
-class _PhoneNumRegScreenState extends State<PhoneNumRegScreen> {
+class OptRegScreenState extends State<OptRegScreen> {
   final _formKey = GlobalKey<FormState>();
 
   final phoneTextEditorController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.green,
       ),
@@ -50,7 +49,7 @@ class _PhoneNumRegScreenState extends State<PhoneNumRegScreen> {
             const SizedBox(
               width: 300,
               child: Text(
-                'আপনার মোবাইল নাম্বার প্রদান করুন',
+                'OTP প্রদান করুন',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 36,
@@ -106,7 +105,7 @@ class _PhoneNumRegScreenState extends State<PhoneNumRegScreen> {
                     minimumSize: const Size(370, 0),
                     padding: const EdgeInsets.symmetric(vertical: 12)),
                 child: const Text(
-                  "এগিয়ে যান",
+                  "OTP নিশ্চিত করুন",
                   style: TextStyle(fontSize: 20),
                 )),
             const SizedBox(
