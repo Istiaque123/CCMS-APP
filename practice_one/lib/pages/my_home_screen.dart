@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice_one/pages/phone_num_reg_screen.dart';
 
 class MyHomeScreen extends StatefulWidget {
   const MyHomeScreen({super.key});
@@ -22,7 +23,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
 
   Widget bodyWeiget(){
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,7 +52,12 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
               height: 150,
             ),
             ElevatedButton(
-              onPressed: (){}, 
+              onPressed: (){
+                 Navigator.push(
+                  context, 
+                  MaterialPageRoute(builder: (context) => const PhoneNumRegScreen())
+                );
+              }, 
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xff15803D),
                 foregroundColor: Colors.white,
@@ -116,29 +122,34 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
               ),
 
               const SizedBox(height: 20,),
-              ElevatedButton(
-              onPressed: (){}, 
-              style: ElevatedButton.styleFrom(
-                backgroundColor:  Colors.white,
-                foregroundColor: Colors.black,
-                 minimumSize: const Size(350, 0),
-                 padding: const EdgeInsets.symmetric(vertical: 12),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 50),
+                child: ElevatedButton(
+                onPressed: (){
                  
-                 side: const BorderSide(
-                  width: 1,
-                  color: Colors.black
-                 )
-
-              ),
-
-              child: const Text(
-                "রেজিস্ট্রেশন",
-                style: TextStyle(
-                  fontSize: 20
+                }, 
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:  Colors.white,
+                  foregroundColor: Colors.black,
+                   minimumSize: const Size(350, 0),
+                   padding: const EdgeInsets.symmetric(vertical: 12),
+                   
+                   side: const BorderSide(
+                    width: 1,
+                    color: Colors.black
+                   )
+                
                 ),
-                )
+                
+                child: const Text(
+                  "লগইন",
+                  style: TextStyle(
+                    fontSize: 20
+                  ),
+                  )
+                ),
               ),
-              const SizedBox(height: 20,),
+
         ],
       ),
     );
