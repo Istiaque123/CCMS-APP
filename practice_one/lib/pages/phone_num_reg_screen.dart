@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:practice_one/feature/common/hero_section.dart';
+import 'package:practice_one/feature/common/keybord_input_section.dart';
 import 'package:practice_one/feature/common/navigator.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
 import 'package:practice_one/pages/opt_reg_screen.dart';
@@ -61,32 +62,18 @@ class _PhoneNumRegScreenState extends ConsumerState<PhoneNumRegScreen> {
             ),
             SizedBox(
               width: 400,
-              child: 
-              TextFormField(
-                validator: (value) {
+              child: KeybordInputSection(
+              inputTextEditorController: phoneTextEditorController,
+              hintText: "মোবাইল নাম্বার লিখুন",
+              validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "আপনার মোবাইল নাম্বার প্রদান করুন";
                   }
                   return null;
                 },
-                controller: phoneTextEditorController,
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  hintText: "মোবাইল নাম্বার লিখুন",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: Colors.black)),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: Colors.black),
-                  ),
-                ),
-              ),
+               ),
             ),
+              
             SizedBox(
               height: ref.watch(bottomHeightProvider),
             ),
@@ -102,7 +89,7 @@ class _PhoneNumRegScreenState extends ConsumerState<PhoneNumRegScreen> {
                     navigatePush(context, const OptRegScreen());
                     return;
                   }
-                  ref.read(bottomHeightProvider.notifier).state = 100;
+                  ref.read(bottomHeightProvider.notifier).state = 260;
               }
               ),    
              const SizedBox(
