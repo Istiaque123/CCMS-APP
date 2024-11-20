@@ -1,35 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:pinput/pinput.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:practice_one/feature/common/hero_section.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
+import 'package:practice_one/utils/auth/otp_auth.dart';
+import 'package:practice_one/utils/normal%20provider/opt_time_provider.dart';
 
-class OptRegScreen extends StatefulWidget {
-  const OptRegScreen({super.key});
-
-  @override
-  State<OptRegScreen> createState() => OptRegScreenState();
-}
-
-class OptRegScreenState extends State<OptRegScreen> {
+class OptRegScreen extends ConsumerWidget {
+  OptRegScreen({super.key});
   final _formKey = GlobalKey<FormState>();
 
-  final phoneTextEditorController = TextEditingController();
-
   @override
-  Widget build(BuildContext context) {
-     return Scaffold(
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
-        child: bodyWeiget(),
-      ),
-    );
-  }
-
-// ------------------------- Body Widget -----------------
-  Widget bodyWeiget() {
-    return Container(
+        child:Container(
       padding: const EdgeInsets.all(12),
       child: Form(
         key: _formKey,
@@ -37,70 +24,59 @@ class OptRegScreenState extends State<OptRegScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const HeroSection(
-              heroMsg: 'OTP প্রদান করুন', 
-              msgHeight: 90
-              ),
+            const HeroSection(heroMsg: 'OTP প্রদান করুন', msgHeight: 90),
             const SizedBox(
               height: 80,
             ),
-            SizedBox(
-              width: 400,
-              child: otpPin()
-              ),
+            SizedBox(width: 400, child: OtpAuth()),
+            Padding(
+              padding: const EdgeInsets.only(right: 25, top: 25),
+              child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Consumer(builder: (context, ref, child) {
+                    return ref.watch(timeStremProvider).when(
+                        data: (data) {
+                          return Text(
+                            "সময়ঃ ${data.toStringAsFixed(2)} মিনিট",
+                            style: const TextStyle(
+                                fontSize: 20, color: Colors.grey),
+                          );
+                        },
+                        error: (error, stackTrace) => Text(error.toString()),
+                        loading: () => const SizedBox(
+                          height: 20,
+                          width: 20,
+                          child: CircularProgressIndicator()
+                          ));
+                  })),
+            ),
             const SizedBox(
-              height: 250,
+              height: 210,
             ),
-            
             NormalBtn(
-            btnName: "OTP নিশ্চিত করুন", 
-            backgroundColor: const Color(0xff15803D), 
-            foregroundColor: Colors.white, 
-            borderSide: false, 
-            onPressed: (){}
-            ),
+                btnName: "OTP নিশ্চিত করুন",
+                backgroundColor: const Color(0xff15803D),
+                foregroundColor: Colors.white,
+                borderSide: false,
+                onPressed: () {}),
             const SizedBox(
               height: 20,
             ),
             NormalBtn(
-              btnName: "পুনরায় OTP পাঠান", 
-              backgroundColor: Colors.white, 
-              foregroundColor: Colors.black, 
-              borderSide: true, 
-              onPressed: (){}
-              ),
-
+                btnName: "পুনরায় OTP পাঠান",
+                backgroundColor: Colors.white,
+                foregroundColor: Colors.black,
+                borderSide: true,
+                onPressed: () {
+                  // Reset the counter 
+                  ref.refresh(timeStremProvider);
+                }
+                ),
           ],
         ),
       ),
-    );
-  }
-
-  // OTP Code
-  Widget otpPin(){
-    return Pinput(
-      length: 6,
-      defaultPinTheme: _defaultPinTheme,
-      keyboardType: TextInputType.number,
-    );
-  }
-
-// OTP section theme
-  final _defaultPinTheme = PinTheme(
-    width: 56,
-    height: 60,
-    textStyle: const TextStyle(
-      fontSize: 26,
-      color: Colors.grey,
     ),
-    
-     decoration: BoxDecoration(
-      
-      color: Colors.transparent,
-      borderRadius: BorderRadius.circular(10),
-      border: Border.all(color: Colors.black)
-     )
-  );
-
-
+      ),
+    );
+  }
 }

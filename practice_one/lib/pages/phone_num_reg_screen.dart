@@ -64,6 +64,7 @@ class _PhoneNumRegScreenState extends ConsumerState<PhoneNumRegScreen> {
               width: 400,
               child: KeybordInputSection(
               inputTextEditorController: phoneTextEditorController,
+              keyboardType: TextInputType.phone,
               hintText: "মোবাইল নাম্বার লিখুন",
               validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -73,7 +74,7 @@ class _PhoneNumRegScreenState extends ConsumerState<PhoneNumRegScreen> {
                 },
                ),
             ),
-              
+
             SizedBox(
               height: ref.watch(bottomHeightProvider),
             ),
@@ -86,7 +87,7 @@ class _PhoneNumRegScreenState extends ConsumerState<PhoneNumRegScreen> {
               elevation: 5,
               onPressed: (){
                 if (_formKey.currentState?.validate() ?? false) {
-                    navigatePush(context, const OptRegScreen());
+                    navigatePush(context, OptRegScreen());
                     return;
                   }
                   ref.read(bottomHeightProvider.notifier).state = 260;
