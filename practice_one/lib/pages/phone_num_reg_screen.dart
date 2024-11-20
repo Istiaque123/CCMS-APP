@@ -1,24 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:pinput/pinput.dart';
-import 'package:practice_one/opt_reg_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:practice_one/feature/common/hero_section.dart';
+import 'package:practice_one/feature/common/navigator.dart';
+import 'package:practice_one/feature/common/normal_btn.dart';
+import 'package:practice_one/pages/opt_reg_screen.dart';
+import 'package:practice_one/utils/normal%20provider/height_provider.dart';
 
-class PhoneNumRegScreen extends StatefulWidget {
+class PhoneNumRegScreen extends ConsumerStatefulWidget {
   const PhoneNumRegScreen({super.key});
 
-  // RouteSector
-  static route() => MaterialPageRoute(
-    builder: (context) => const PhoneNumRegScreen()
-    );
-// -----------------------------------
-
   @override
-  State<PhoneNumRegScreen> createState() => _PhoneNumRegScreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _PhoneNumRegScreenState();
 }
 
-class _PhoneNumRegScreenState extends State<PhoneNumRegScreen> {
-  final _formKey = GlobalKey<FormState>();
+class _PhoneNumRegScreenState extends ConsumerState<PhoneNumRegScreen> {
+
+  final _formKey = GlobalKey<FormState>(); 
 
   final phoneTextEditorController = TextEditingController();
+
+  @override
+  void dispose() {
+    phoneTextEditorController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +32,19 @@ class _PhoneNumRegScreenState extends State<PhoneNumRegScreen> {
         foregroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
-        child: bodyWeiget(),
+        child: Consumer(
+          builder: (BuildContext context, WidgetRef ref, child) {
+
+            return bodyWidget(context, ref);
+          } 
+          ),
+
       ),
     );
   }
 
-  Widget bodyWeiget() {
+  //--------------------------- Body Weidget ------
+  Widget bodyWidget(BuildContext context, WidgetRef ref) {
     return Container(
       padding: const EdgeInsets.all(12),
       child: Form(
@@ -41,30 +53,9 @@ class _PhoneNumRegScreenState extends State<PhoneNumRegScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Center(
-              child: SizedBox(
-                width: 100,
-                height: 100,
-                child: Image.asset(
-                  "assets/images/spalsh_logo.png",
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 90,
-            ),
-            const SizedBox(
-              width: 300,
-              child: Text(
-                'আপনার মোবাইল নাম্বার প্রদান করুন',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 36,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black),
-              ),
-            ),
+            const HeroSection(
+              heroMsg: "আপনার মোবাইল নাম্বার প্রদান করুন", 
+              msgHeight: 90),
             const SizedBox(
               height: 100,
             ),
@@ -96,28 +87,25 @@ class _PhoneNumRegScreenState extends State<PhoneNumRegScreen> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 250,
+            SizedBox(
+              height: ref.watch(bottomHeightProvider),
             ),
-            ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState?.validate() ?? false) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const OptRegScreen()));
+            CustomBtn(
+              btnName:  "এগিয়ে যান", 
+              backgroundColor: const Color(0xff15803D),
+              foregroundColor: Colors.white,
+              minimumSize: const Size(370, 0),
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              elevation: 5,
+              onPressed: (){
+                if (_formKey.currentState?.validate() ?? false) {
+                    navigatePush(context, const OptRegScreen());
+                    return;
                   }
-                },
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xff15803D),
-                    foregroundColor: Colors.white,
-                    minimumSize: const Size(370, 0),
-                    padding: const EdgeInsets.symmetric(vertical: 12)),
-                child: const Text(
-                  "এগিয়ে যান",
-                  style: TextStyle(fontSize: 20),
-                )),
-            const SizedBox(
+                  ref.read(bottomHeightProvider.notifier).state = 100;
+              }
+              ),    
+             const SizedBox(
               height: 20,
             ),
           ],
@@ -126,25 +114,4 @@ class _PhoneNumRegScreenState extends State<PhoneNumRegScreen> {
     );
   }
 
-  // OTP Code
-  Widget otpPin(){
-    return Pinput(
-      length: 6,
-      defaultPinTheme: _defaultPinTheme,
-    );
-  }
-
-  final _defaultPinTheme = PinTheme(
-    width: 56,
-    height: 60,
-    textStyle: const TextStyle(
-      fontSize: 26,
-      color: Colors.grey,
-    ),
-     decoration: BoxDecoration(
-      color: Colors.grey.shade700,
-      borderRadius: BorderRadius.circular(10),
-      border: Border.all(color: Colors.transparent)
-     )
-  );
 }

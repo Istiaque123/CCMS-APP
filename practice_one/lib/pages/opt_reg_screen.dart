@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
+import 'package:practice_one/feature/common/hero_section.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
 
 class OptRegScreen extends StatefulWidget {
@@ -26,6 +27,7 @@ class OptRegScreenState extends State<OptRegScreen> {
     );
   }
 
+// ------------------------- Body Widget -----------------
   Widget bodyWeiget() {
     return Container(
       padding: const EdgeInsets.all(12),
@@ -35,30 +37,10 @@ class OptRegScreenState extends State<OptRegScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Center(
-              child: SizedBox(
-                width: 100,
-                height: 100,
-                child: Image.asset(
-                  "assets/images/spalsh_logo.png",
-                  fit: BoxFit.contain,
-                ),
+            const HeroSection(
+              heroMsg: 'OTP প্রদান করুন', 
+              msgHeight: 90
               ),
-            ),
-            const SizedBox(
-              height: 90,
-            ),
-            const SizedBox(
-              width: 300,
-              child: Text(
-                'OTP প্রদান করুন',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 36,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black),
-              ),
-            ),
             const SizedBox(
               height: 80,
             ),

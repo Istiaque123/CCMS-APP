@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:practice_one/feature/common/hero_section.dart';
+import 'package:practice_one/feature/common/navigator.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
 import 'package:practice_one/pages/phone_num_reg_screen.dart';
 
@@ -23,38 +25,23 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
         foregroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
-        child: bodyWeiget(),
+        child: bodyWidget(),
       ),
     );
   }
 
-  Widget bodyWeiget(){
+// -------------------------------- Body Widget -----------------------
+  Widget bodyWidget(){
     return Container(
       padding: const EdgeInsets.all(12),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Center(
-            child: SizedBox(
-              width: 100,
-              height: 100,
-              child: Image.asset(
-                "assets/images/spalsh_logo.png",
-                fit: BoxFit.contain,
-              ),
-            ),
-          ),
-          const SizedBox(height: 150,),
-          const Text(
-            'জাতীয় ভোক্তা অধিকার সংরক্ষন অধিদপ্তর',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 36,
-              fontWeight: FontWeight.w600,
-              color: Colors.black
-            ),
-            ),
+        children: [ 
+
+          const HeroSection(
+            heroMsg:'জাতীয় ভোক্তা অধিকার সংরক্ষন অধিদপ্তর', 
+            msgHeight:  150),
             const SizedBox(
               height: 100,
             ),
@@ -66,7 +53,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
               minimumSize: const Size(370, 0),
               elevation: 5,
               onPressed: (){
-                Navigator.push(context, PhoneNumRegScreen.route());
+                navigatePush(context, const PhoneNumRegScreen());
               }
               ),
               const SizedBox(height: 20,),
@@ -117,16 +104,16 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
               ),
 
               const SizedBox(height: 15,),
-              // Padding(
-              //   padding: const EdgeInsets.only(bottom: 50),
-              //   child: button("লগইন",  Colors.white, Colors.black, true, (){}),
-              // ),
+
               NormalBtn(
                 btnName: "লগইন", 
                 backgroundColor: Colors.white, 
                 foregroundColor: Colors.black, 
                 borderSide: true, 
-                onPressed: (){}
+                onPressed: (){
+                  //----------------------------------------------------
+                    // Task to be done
+                }
                 ),
                 const SizedBox(height: 30,),
                 NormalBtn(
