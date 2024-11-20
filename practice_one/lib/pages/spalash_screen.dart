@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:practice_one/feature/common/normal_btn.dart';
 import 'package:practice_one/pages/my_home_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
+
+// route sector
+  static route() => MaterialPageRoute(
+    builder: (context) => const SplashScreen()
+    );
+// --------------------------------------------------------
+
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +22,7 @@ class SplashScreen extends StatelessWidget {
     );
   }
 
+// ----------------------------------------------
   // Body Widget
   Widget bodyWidget(var context) {
     return Container(
@@ -53,27 +62,14 @@ class SplashScreen extends StatelessWidget {
             ),
           ),
           const Spacer(), 
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context, 
-                MaterialPageRoute(builder: (context)=> const MyHomeScreen()));
+          CustomBtn(
+            btnName: "শুরু করুন",
+            backgroundColor: Colors.white,
+            foregroundColor: Colors.black, 
+            onPressed: (){
+              Navigator.pushReplacement(context, MyHomeScreen.route());
             },
-            style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 15),
-                minimumSize: const Size(double.infinity, 0),
-                backgroundColor: Colors.white,
-                elevation: 10,
-                shadowColor: Colors.black.withOpacity(0.7)),
-
-            child: const Text(
-              'শুরু করুন',
-              style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 20,
-                  color: Colors.black),
             ),
-          ),
           const SizedBox(height: 40), 
         ],
       ),

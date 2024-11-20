@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:practice_one/feature/common/normal_btn.dart';
 import 'package:practice_one/pages/phone_num_reg_screen.dart';
 
 class MyHomeScreen extends StatefulWidget {
   const MyHomeScreen({super.key});
+
+// routeSector
+  static route() => MaterialPageRoute(
+    builder: (cotext) => const MyHomeScreen()
+    );
+// -----------------------------------
 
   @override
   State<MyHomeScreen> createState() => _MyHomeScreenState();
@@ -49,14 +56,19 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
             ),
             ),
             const SizedBox(
-              height: 150,
+              height: 100,
             ),
-            button('রেজিস্ট্রেশন', const Color(0xff15803D), Colors.white, false, (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const PhoneNumRegScreen()) 
-                );
-            }),
+            // ---------------------Reg BTN-------------------------
+            CustomBtn(
+              btnName: 'রেজিস্ট্রেশন', 
+              backgroundColor: const Color(0xff15803D),
+              foregroundColor: Colors.white,
+              minimumSize: const Size(370, 0),
+              elevation: 5,
+              onPressed: (){
+                Navigator.push(context, PhoneNumRegScreen.route());
+              }
+              ),
               const SizedBox(height: 20,),
 
               Row(
@@ -88,7 +100,6 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                       border: Border.all(
                         color: Colors.black,
                         width: 1,
-                        
                       )
                     ),
                   ),
@@ -105,39 +116,32 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                 ),
               ),
 
-              const SizedBox(height: 20,),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 50),
-                child: button("লগইন",  Colors.white, Colors.black, true, (){}),
-              ),
-
+              const SizedBox(height: 15,),
+              // Padding(
+              //   padding: const EdgeInsets.only(bottom: 50),
+              //   child: button("লগইন",  Colors.white, Colors.black, true, (){}),
+              // ),
+              NormalBtn(
+                btnName: "লগইন", 
+                backgroundColor: Colors.white, 
+                foregroundColor: Colors.black, 
+                borderSide: true, 
+                onPressed: (){}
+                ),
+                const SizedBox(height: 30,),
+                NormalBtn(
+                  btnName: "এডমিন হিসেবে লগইন করুন", 
+                  backgroundColor: Colors.white, 
+                  foregroundColor: const Color(0xff15803D), 
+                  borderSide: true, 
+                  borderColor: const Color(0xff15803D), 
+                  onPressed: (){}
+                  ),
+                  const SizedBox(height: 80,),
         ],
       ),
     );
   }
 
-  Widget button(String btnName, var backgroundColor, var foregroundColor, bool borderSide, onPress){
-    return ElevatedButton(
-                onPressed: onPress, 
-                style: ElevatedButton.styleFrom(
-                  backgroundColor:  backgroundColor,
-                  foregroundColor: foregroundColor,
-                   minimumSize: const Size(350, 0),
-                   padding: const EdgeInsets.symmetric(vertical: 12),
-                   
-                   side: borderSide ? const BorderSide(
-                    width: 1,
-                    color: Colors.black
-                   ): null
-                
-                ),
-                
-                child:  Text(
-                  btnName,
-                  style: const TextStyle(
-                    fontSize: 20
-                  ),
-                  )
-                );
-  }
+  
 }

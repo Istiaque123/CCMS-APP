@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
+import 'package:practice_one/feature/common/normal_btn.dart';
 
 class OptRegScreen extends StatefulWidget {
   const OptRegScreen({super.key});
@@ -68,11 +69,25 @@ class OptRegScreenState extends State<OptRegScreen> {
             const SizedBox(
               height: 250,
             ),
-            button("OTP নিশ্চিত করুন", const Color(0xff15803D) , Colors.white, false, (){}),
+            
+            NormalBtn(
+            btnName: "OTP নিশ্চিত করুন", 
+            backgroundColor: const Color(0xff15803D), 
+            foregroundColor: Colors.white, 
+            borderSide: false, 
+            onPressed: (){}
+            ),
             const SizedBox(
               height: 20,
             ),
-            button("পুনরায় OTP পাঠান", Colors.white, Colors.black, true, (){})
+            NormalBtn(
+              btnName: "পুনরায় OTP পাঠান", 
+              backgroundColor: Colors.white, 
+              foregroundColor: Colors.black, 
+              borderSide: true, 
+              onPressed: (){}
+              ),
+
           ],
         ),
       ),
@@ -105,34 +120,5 @@ class OptRegScreenState extends State<OptRegScreen> {
      )
   );
 
-// Button set
-  Widget button(String btnName, var backgroundColor, var foregroundColor, bool borderSide, var onPressed){
-    return ElevatedButton(
-                onPressed: onPressed,
-                /* () {
-                  if (_formKey.currentState?.validate() ?? false) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const OptRegScreen()));
-                  }
-                },
-                */
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: backgroundColor,
-                    foregroundColor: foregroundColor,
-                    minimumSize: const Size(370, 0),
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    side: borderSide ? const BorderSide(
-                    width: 1,
-                    color: Colors.black
-                   ) : null
-                    ),
-                    
-                child:  Text(
-                  btnName,
-                  style: const TextStyle(fontSize: 20),
-                )
-                );
-  }
+
 }

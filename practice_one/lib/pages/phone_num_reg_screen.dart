@@ -5,6 +5,12 @@ import 'package:practice_one/opt_reg_screen.dart';
 class PhoneNumRegScreen extends StatefulWidget {
   const PhoneNumRegScreen({super.key});
 
+  // RouteSector
+  static route() => MaterialPageRoute(
+    builder: (context) => const PhoneNumRegScreen()
+    );
+// -----------------------------------
+
   @override
   State<PhoneNumRegScreen> createState() => _PhoneNumRegScreenState();
 }
