@@ -11,7 +11,7 @@ class NormalBtn extends StatelessWidget {
   final EdgeInsetsGeometry padding;
 
   const NormalBtn({
-    Key? key,
+    super.key,
     required this.btnName,
     required this.backgroundColor ,
     required this.foregroundColor ,
@@ -20,7 +20,7 @@ class NormalBtn extends StatelessWidget {
     this.borderColor = Colors.black,
     this.minimumSize = const Size(370, 0),
     this.padding = const EdgeInsets.symmetric(vertical: 12),
-  }) : super(key: key);
+  }) ;
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class CustomBtn extends StatelessWidget {
 
 
   const CustomBtn({
-    Key? key,
+    super.key,
     required this.btnName,
     required this.onPressed,
     this.borderSide = false,
@@ -72,7 +72,7 @@ class CustomBtn extends StatelessWidget {
     this.padding = const EdgeInsets.symmetric(vertical: 15),
 
 
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
