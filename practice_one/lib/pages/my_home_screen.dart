@@ -41,21 +41,24 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
 
           const HeroSection(
             heroMsg:'জাতীয় ভোক্তা অধিকার সংরক্ষন অধিদপ্তর', 
-            msgHeight:  150),
+            msgHeight:  80),
             const SizedBox(
-              height: 100,
+              height: 150,
             ),
             // ---------------------Reg BTN-------------------------
-            CustomBtn(
-              btnName: 'রেজিস্ট্রেশন', 
-              backgroundColor: const Color(0xff15803D),
-              foregroundColor: Colors.white,
-              minimumSize: const Size(370, 0),
-              elevation: 5,
-              onPressed: (){
-                navigatePush(context, const PhoneNumRegScreen());
-              }
-              ),
+            SizedBox(
+              width: 370,
+              child: CustomBtn(
+                btnName: 'রেজিস্ট্রেশন', 
+                backgroundColor: const Color(0xff15803D),
+                foregroundColor: Colors.white,
+                minimumSize: const Size(300, 0),
+                elevation: 5,
+                onPressed: (){
+                  navigatePush(context, const PhoneNumRegScreen());
+                }
+                ),
+            ),
               const SizedBox(height: 20,),
 
               Row(

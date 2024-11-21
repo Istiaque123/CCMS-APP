@@ -3,7 +3,13 @@ import 'package:flutter/material.dart';
 class HeroSection extends StatelessWidget {
   final String heroMsg;
   final double msgHeight;
-  const HeroSection({super.key, required this.heroMsg, required this.msgHeight});
+  final double msgWeight;
+
+  const  HeroSection({
+    super.key, required this.heroMsg, 
+    required this.msgHeight,
+    this.msgWeight = 350.00
+    });
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +28,49 @@ class HeroSection extends StatelessWidget {
           ),
         ),
         SizedBox(height: msgHeight,),
-        Text(
-          heroMsg,
-          textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 36,
-              fontWeight: FontWeight.w600,
-              color: Colors.black
-            ),
+        SizedBox(
+          width: msgWeight,
+          child: Text(
+            heroMsg,
+            textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.w500,
+                fontFamily: 'Kalpurush',
+                color: Colors.black
+              ),
+          ),
         ),
       ],
+    );
+  }
+}
+
+class HeroSectionNoLogo extends StatelessWidget {
+  final String heroMsg;
+  final double msgWeight;
+  const HeroSectionNoLogo({
+    super.key,
+    required this.heroMsg,
+    this.msgWeight = 350.00  
+    });
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: SizedBox(
+            width: msgWeight,
+            child: Text(
+              heroMsg,
+              textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'Kalpurush',
+                  color: Colors.black
+                ),
+            ),
+          ),
     );
   }
 }

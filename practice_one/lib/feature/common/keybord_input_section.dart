@@ -11,6 +11,7 @@ class KeybordInputSection extends ConsumerStatefulWidget {
   final TextInputType keyboardType;
   final String? Function(String?)? validator;
   final bool isPasswordFeild;
+  final bool isRequired;
 
   const KeybordInputSection({
     super.key,
@@ -19,6 +20,7 @@ class KeybordInputSection extends ConsumerStatefulWidget {
     this.validator,
     this.keyboardType = TextInputType.text,
     this.isPasswordFeild = false,
+    this.isRequired = false
   });
 
   @override
@@ -37,7 +39,28 @@ class _KeybordInputSectionState extends ConsumerState<KeybordInputSection> {
       keyboardType: widget.keyboardType,
       obscureText: widget.isPasswordFeild ? isObscured : false,
       decoration: InputDecoration(
-        hintText: widget.hintText,
+        label: RichText(
+          text: TextSpan(
+            text: widget.hintText,
+            style: const TextStyle(
+              color: Colors.grey,
+              fontSize: 20,
+              fontFamily: 'Kalpurush'
+            ),
+            children: widget.isRequired
+                ? [
+                    const TextSpan(
+                      text: ' *',
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ]
+                : [],
+          )
+          ),
+                
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(color: Colors.black),

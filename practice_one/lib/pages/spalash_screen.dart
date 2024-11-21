@@ -14,11 +14,8 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         body: bodyWidget(context),
-      ),
     );
   }
 
@@ -34,13 +31,17 @@ class SplashScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Padding(padding: EdgeInsets.only(top: 200)),
-          const Text(
-            "জাতীয় ভোক্তা অধিকার সংরক্ষন অধিদপ্তরে অফিসিয়াল এপ্লিকেশনে আপনাকে স্বাগতম",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 36,
-              color: Colors.white,
+          const SizedBox(
+            width: 350,
+            child: Text(
+              "জাতীয় ভোক্তা অধিকার সংরক্ষন অধিদপ্তরে অফিসিয়াল এপ্লিকেশনে আপনাকে স্বাগতম",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 36,
+                color: Colors.white,
+                fontFamily: 'Kalpurush'
+              ),
             ),
           ),
           const SizedBox(height: 20),
@@ -66,6 +67,7 @@ class SplashScreen extends StatelessWidget {
             btnName: "শুরু করুন",
             backgroundColor: Colors.white,
             foregroundColor: Colors.black, 
+            elevation: 5,
             onPressed: (){
               Navigator.pushReplacement(context, MyHomeScreen.route());
             },

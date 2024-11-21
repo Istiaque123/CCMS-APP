@@ -40,7 +40,10 @@ class NormalBtn extends StatelessWidget {
       ),
       child: Text(
         btnName,
-        style: const TextStyle(fontSize: 20),
+        style: const TextStyle(
+          fontSize: 20,
+          fontFamily: 'Kalpurush'
+          ),
       ),
     );
   }
@@ -76,30 +79,34 @@ class CustomBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        padding: padding, // Vertical padding
-        minimumSize: minimumSize, // Configurable minimum size
-        backgroundColor: backgroundColor, // Button background color
-        foregroundColor: foregroundColor, // Text/icon color
-        elevation: elevation, // Button elevation
-        shadowColor: shadowColor, // Shadow color with opacity
-        side: borderSide
-            ? const BorderSide(
-                width: 1,
-                color: Colors.black,
-              )
-            : null,
-      
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          padding: padding, // Vertical padding
+          minimumSize: minimumSize, // Configurable minimum size
+          backgroundColor: backgroundColor, // Button background color
+          foregroundColor: foregroundColor, // Text/icon color
+          elevation: elevation, // Button elevation
+          shadowColor: shadowColor, // Shadow color with opacity
+          side: borderSide
+              ? const BorderSide(
+                  width: 1,
+                  color: Colors.black,
+                )
+              : null,
         
-      ),
-      child: Text(
-        btnName,
-        style: TextStyle(
-          fontWeight: FontWeight.w400,
-          fontSize: 20,
-          color: foregroundColor, // Use the foreground color for text
+          
+        ),
+        child: Text(
+          btnName,
+          style: TextStyle(
+            fontWeight: FontWeight.w400,
+            fontSize: 20,
+            fontFamily: 'Kalpurush',
+            color: foregroundColor, // Use the foreground color for text
+          ),
         ),
       ),
     );

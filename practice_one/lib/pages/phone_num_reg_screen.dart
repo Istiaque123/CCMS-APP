@@ -4,6 +4,7 @@ import 'package:practice_one/feature/common/hero_section.dart';
 import 'package:practice_one/feature/common/keybord_input_section.dart';
 import 'package:practice_one/feature/common/navigator.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
+import 'package:practice_one/feature/common/useful_methode.dart';
 import 'package:practice_one/pages/opt_reg_screen.dart';
 import 'package:practice_one/utils/normal%20provider/height_provider.dart';
 
@@ -56,7 +57,9 @@ class _PhoneNumRegScreenState extends ConsumerState<PhoneNumRegScreen> {
           children: [
             const HeroSection(
               heroMsg: "আপনার মোবাইল নাম্বার প্রদান করুন", 
-              msgHeight: 90),
+              msgHeight: 90,
+              msgWeight: 300,
+              ),
             const SizedBox(
               height: 100,
             ),
@@ -66,12 +69,7 @@ class _PhoneNumRegScreenState extends ConsumerState<PhoneNumRegScreen> {
               inputTextEditorController: phoneTextEditorController,
               keyboardType: TextInputType.phone,
               hintText: "মোবাইল নাম্বার লিখুন",
-              validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "আপনার মোবাইল নাম্বার প্রদান করুন";
-                  }
-                  return null;
-                },
+              validator: (value) => validator(value, "আপনার মোবাইল নাম্বার প্রদান করুন"),
                ),
             ),
 
