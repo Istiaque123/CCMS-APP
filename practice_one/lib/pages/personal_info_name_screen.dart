@@ -181,12 +181,7 @@ class _PersonalInfoNameScreenState extends ConsumerState<PersonalInfoNameScreen>
                               
                                                   
                               onChanged: (value) {
-                                 if (_formKey.currentState?.validate() == false) {
-                                setState(() {
-                                  // Trigger a re-render and remove any error
-                                return;
-                                });
-                              }
+                                
                                 setState(() {
                                   selectedGender = value;
                                 });

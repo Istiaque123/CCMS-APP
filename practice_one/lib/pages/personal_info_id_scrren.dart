@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:practice_one/feature/common/hero_section.dart';
 import 'package:practice_one/feature/common/keybord_input_section.dart';
+import 'package:practice_one/feature/common/navigator.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
 import 'package:practice_one/feature/common/useful_methode.dart';
+import 'package:practice_one/pages/address_screen.dart';
 
 class PersonalInfoIdScrren extends ConsumerStatefulWidget {
   const PersonalInfoIdScrren({super.key});
@@ -165,7 +167,7 @@ class _PersonalInfoIdScreenState extends ConsumerState<PersonalInfoIdScrren> {
                       onPressed: () {
                         if (_formKey.currentState?.validate() ?? false) {
                           // Perform action (e.g., navigate to another page)
-                          // navigatePush(context,  const PersonalInfoId());
+                          navigatePush(context,  const AddressScreen());
                         }
                       },
                     ),
