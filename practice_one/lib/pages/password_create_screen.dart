@@ -4,8 +4,9 @@ import 'package:practice_one/feature/common/hero_section.dart';
 import 'package:practice_one/feature/common/keybord_input_section.dart';
 import 'package:practice_one/feature/common/navigator.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
-import 'package:practice_one/pages/personal_info_name.dart';
-import 'package:practice_one/utils/normal%20provider/password_check_provider.dart';
+import 'package:practice_one/feature/common/useful_methode.dart';
+import 'package:practice_one/pages/personal_info_name_screen.dart';
+import 'package:practice_one/utils/normal%20provider/inpute_check_provider.dart';
 
 class PasswordCreateScreen extends ConsumerStatefulWidget {
   const PasswordCreateScreen({super.key});
@@ -53,7 +54,7 @@ class _PasswordCreateScreenState extends ConsumerState<PasswordCreateScreen> {
               children: [
                 const HeroSection(
                   heroMsg: "আপনার পাসওয়ার্ড প্রদান করুন",
-                  msgWeight: 00,
+                  msgWeight: 300,
                   msgHeight: 90),
                   const SizedBox( height: 100,),
                 SizedBox(
@@ -64,12 +65,7 @@ class _PasswordCreateScreenState extends ConsumerState<PasswordCreateScreen> {
                     isPasswordFeild: true,
                     validator: (value) {
                       updatePasswordCheckState();
-                  if (value == null || value.isEmpty) {
-                  
-                    return "আপনার পাসওয়ার্ড দিন";
-                  }
-                  
-                  return null;
+                  return validator(value, 'আপনার পাসওয়ার্ড দিন"');
                 },
                     ),
                 ) ,
@@ -82,12 +78,7 @@ class _PasswordCreateScreenState extends ConsumerState<PasswordCreateScreen> {
                     isPasswordFeild: true,
                     validator: (value) {
                       updatePasswordCheckState();
-                  if (value == null || value.isEmpty) {
-                    
-                    return "আপনার পাসওয়ার্ড দিন";
-                  }
-                  
-                  return null;
+                  return validator(value, "আপনার পাসওয়ার্ড দিন");
                 },
                   ),
                 ) ,
@@ -108,7 +99,7 @@ class _PasswordCreateScreenState extends ConsumerState<PasswordCreateScreen> {
                 onPressed: (){
                   if (_formKey.currentState?.validate() ?? false) {
                       // navigatePush(context, OptRegScreen());
-                      navigatePush(context, const PersonalInfoName());
+                      navigatePush(context, const PersonalInfoNameScreen());
                       return;
                     }
               

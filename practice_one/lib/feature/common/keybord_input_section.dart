@@ -12,6 +12,7 @@ class KeybordInputSection extends ConsumerStatefulWidget {
   final String? Function(String?)? validator;
   final bool isPasswordFeild;
   final bool isRequired;
+  final bool isEnabled;
 
   const KeybordInputSection({
     super.key,
@@ -20,7 +21,8 @@ class KeybordInputSection extends ConsumerStatefulWidget {
     this.validator,
     this.keyboardType = TextInputType.text,
     this.isPasswordFeild = false,
-    this.isRequired = false
+    this.isRequired = false,
+    this.isEnabled = false
   });
 
   @override
@@ -38,6 +40,7 @@ class _KeybordInputSectionState extends ConsumerState<KeybordInputSection> {
       controller: widget.inputTextEditorController,
       keyboardType: widget.keyboardType,
       obscureText: widget.isPasswordFeild ? isObscured : false,
+      readOnly: widget.isEnabled,
       decoration: InputDecoration(
         label: RichText(
           text: TextSpan(
