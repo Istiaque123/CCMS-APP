@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:practice_one/feature/common/theme.dart';
+
+// !---------------------------------------- Normal Button -----------------------------------------------
 
 class NormalBtn extends StatelessWidget {
   final VoidCallback? onPressed;
@@ -50,7 +51,7 @@ class NormalBtn extends StatelessWidget {
   }
 }
 
-
+// !---------------------------------------- Custom Button -----------------------------------------------
 class CustomBtn extends StatelessWidget {
   final VoidCallback onPressed;
   final String btnName;
@@ -116,40 +117,36 @@ class CustomBtn extends StatelessWidget {
 }
 
 
+// ! ---------------------------------------------Custom Squre Btn------------------------------------------------------------------
+
 class CustomSqureBtn extends StatelessWidget {
-  final VoidCallback onPressed;
   final String btnName;
+  final VoidCallback onPressed;
+  final bool borderSide;
   final Color backgroundColor;
   final Color foregroundColor;
   final double elevation;
   final Size minimumSize;
   final Color shadowColor;
   final Color borderColor;
-  final bool borderSide;
   final double borderRadius;
   final EdgeInsetsGeometry padding;
-
-
+  final Icon? icon; // Optional icon parameter
 
   const CustomSqureBtn({
     super.key,
     required this.btnName,
     required this.onPressed,
     this.borderSide = false,
-
     this.backgroundColor = Colors.white,
     this.foregroundColor = Colors.black,
     this.elevation = 10.0,
-    this.minimumSize = const Size(double.infinity, 50), 
-    this.shadowColor = const Color(0xFF000000), 
-    this.borderColor =  Colors.black,
+    this.minimumSize = const Size(double.infinity, 50),
+    this.shadowColor = const Color(0xFF000000),
+    this.borderColor = Colors.black,
     this.borderRadius = 10,
-
     this.padding = const EdgeInsets.symmetric(vertical: 15),
-
-
-
-
+    this.icon, // Accept an optional icon
   });
 
   @override
@@ -157,31 +154,40 @@ class CustomSqureBtn extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        padding: padding, // Vertical padding
-        minimumSize: minimumSize, // Configurable minimum size
-        backgroundColor: backgroundColor, // Button background color
-        foregroundColor: foregroundColor, // Text/icon color
-        elevation: elevation, // Button elevation
-        shadowColor: shadowColor, // Shadow color with opacity
+        padding: padding,
+        minimumSize: minimumSize,
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        elevation: elevation,
+        shadowColor: shadowColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(borderRadius)
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
-
         side: borderSide
-            ?  BorderSide(
+            ? BorderSide(
                 width: 1,
                 color: borderColor,
               )
             : null,
       ),
-      child: Text(
-        btnName,
-        style: TextStyle(
-          fontWeight: FontWeight.w400,
-          fontSize: 20,
-          fontFamily: 'Kalpurush',
-          color: foregroundColor, // Use the foreground color for text
-        ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min, // Ensures the button adjusts to content
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (icon != null) ...[
+            icon!, // Display the icon if provided
+            const SizedBox(width: 8), // Add spacing between icon and text
+          ],
+          Text(
+            btnName,
+            style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 20,
+              fontFamily: 'Kalpurush',
+              color: foregroundColor,
+            ),
+          ),
+        ],
       ),
     );
   }

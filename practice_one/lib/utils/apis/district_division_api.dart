@@ -66,7 +66,7 @@ class DistrictDivisionAPI implements IDistrictDivisionApi {
       final response = await http
           .get(Uri.parse('$districtDibisionBaseUrl/division/$divisionName'));
 
-      print(response.statusCode);
+
 
       if (response.statusCode == 200) {
         // print(jsonDecode(response.body));

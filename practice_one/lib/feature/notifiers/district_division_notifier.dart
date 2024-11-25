@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:practice_one/model/distirct_address.dart';
 import 'package:practice_one/model/division_address.dart';
@@ -34,7 +35,9 @@ class DivisionNotifier extends StateNotifier<List<DivisionAddress>> {
 
     result.match(
       (failure) {
-        print("Error fetching divisions: $failure");
+        if (kDebugMode) {
+          print("Error fetching divisions: $failure");
+        }
       },
       (divisions) {
         state = divisions;  // Update the state after fetching divisions
@@ -58,7 +61,9 @@ class DistrictNotifier extends StateNotifier<List<DistirctAddress>> {
 
     result.match(
       (failure) {
-        print("Error fetching districts: $failure");
+        if (kDebugMode) {
+          print("Error fetching districts: $failure");
+        }
       },
       (districts) {
         state = districts;  // Update the state with districts

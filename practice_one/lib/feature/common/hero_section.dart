@@ -49,10 +49,12 @@ class HeroSection extends StatelessWidget {
 class HeroSectionNoLogo extends StatelessWidget {
   final String heroMsg;
   final double msgWeight;
+  final double fontSize;
   const HeroSectionNoLogo({
     super.key,
     required this.heroMsg,
-    this.msgWeight = 350.00  
+    this.msgWeight = 350.00,
+    this.fontSize = 36.00
     });
 
   @override
@@ -63,8 +65,8 @@ class HeroSectionNoLogo extends StatelessWidget {
             child: Text(
               heroMsg,
               textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 36,
+                style: TextStyle(
+                  fontSize: fontSize,
                   fontWeight: FontWeight.w500,
                   fontFamily: 'Kalpurush',
                   color: Colors.black

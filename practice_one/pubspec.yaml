@@ -35,6 +35,7 @@ dependencies:
   flutter_riverpod: ^2.6.1
   fpdart: ^1.1.1
   http: ^1.2.2
+  image_picker: ^1.1.2
   intl: ^0.20.0
   pinput: ^5.0.0
 
@@ -71,6 +72,12 @@ flutter:
       fonts:
         - asset: assets/fonts/kalpurush.ttf
         - asset: assets/fonts/kalpurush ANSI.ttf
+    #         style: italic
+    - family: NotoSerifBengali
+      fonts:
+        - asset: assets/fonts/NotoSerifBengali_Condensed-Black.ttf
+        - asset: assets/fonts/NotoSerifBengali_Condensed-Medium.ttf
+        - asset: assets/fonts/NotoSerifBengali_Condensed-Light.ttf
     #         style: italic
     - family: Poppins
       fonts:

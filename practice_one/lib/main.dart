@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:practice_one/pages/address_screen.dart';
 import 'package:practice_one/pages/my_home_screen.dart';
 import 'package:practice_one/pages/password_create_screen.dart';
+import 'package:practice_one/pages/personal_info_check.dart';
 import 'package:practice_one/pages/personal_info_id_scrren.dart';
 import 'package:practice_one/pages/personal_info_name_screen.dart';
 import 'package:practice_one/pages/profession_screen.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const ProfileImgTakeScreen()
+      home: const PersonalInfoCheck()
     );
   }
 }

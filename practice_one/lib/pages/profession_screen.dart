@@ -152,7 +152,6 @@ class _ProfessionScreenState extends ConsumerState<ProfessionScreen> {
                       onPressed: () {
                         if (_formKey.currentState?.validate() ?? false) {
                           // Perform action (e.g., navigate to another page)
-                          print(profession);
                           navigatePush(context, const ProfileImgTakeScreen());
                         }
                       },
