@@ -151,7 +151,7 @@ class _AddressScreenState extends ConsumerState<AddressScreen> {
                                                 DropdownMenuItem<String>(
                                                     value: division.division,
                                                     child: Text(
-                                                      division.division,
+                                                      division.divisionBn,
                                                       style: myTextStyle(),
                                                     )))
                                             .toList(),
@@ -189,6 +189,9 @@ class _AddressScreenState extends ConsumerState<AddressScreen> {
                                           dropdownStyleData: const DropdownStyleData(
                                             maxHeight: 200
                                           ),
+                                          buttonStyleData: const ButtonStyleData(
+                                            height: 30
+                                          ),
                                           decoration: InputDecoration(
                                             hintText: 'জেলা',
                                             hintStyle: myTextStyle(),
@@ -219,7 +222,7 @@ class _AddressScreenState extends ConsumerState<AddressScreen> {
                                                   DropdownMenuItem<String>(
                                                       value: district.district,
                                                       child: Text(
-                                                        district.district,
+                                                        district.districtBn,
                                                         style: myTextStyle(),
                                                       )))
                                               .toList(),
