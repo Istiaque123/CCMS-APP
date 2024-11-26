@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:practice_one/pages/address_screen.dart';
-import 'package:practice_one/pages/my_home_screen.dart';
+import 'package:practice_one/pages/log_reg_select_screen.dart';
 import 'package:practice_one/pages/password_create_screen.dart';
 import 'package:practice_one/pages/personal_info_check.dart';
 import 'package:practice_one/pages/personal_info_id_scrren.dart';

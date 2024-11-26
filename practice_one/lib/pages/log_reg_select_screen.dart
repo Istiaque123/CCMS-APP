@@ -2,35 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:practice_one/feature/common/hero_section.dart';
 import 'package:practice_one/feature/common/navigator.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
+import 'package:practice_one/feature/common/theme.dart';
 import 'package:practice_one/pages/phone_num_reg_screen.dart';
 
-class MyHomeScreen extends StatefulWidget {
-  const MyHomeScreen({super.key});
-
-// routeSector
-  static route() => MaterialPageRoute(
-    builder: (cotext) => const MyHomeScreen()
-    );
-// -----------------------------------
-
+class LogRegSelectScreen extends StatefulWidget {
+  const LogRegSelectScreen({super.key});
   @override
-  State<MyHomeScreen> createState() => _MyHomeScreenState();
+  State<LogRegSelectScreen> createState() => LogRegSelectScreenState();
 }
 
-class _MyHomeScreenState extends State<MyHomeScreen> {
+class LogRegSelectScreenState extends State<LogRegSelectScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.green,
+         backgroundColor: ColorsClass.white,
       ),
+       backgroundColor: ColorsClass.white,
       body: SingleChildScrollView(
         child: bodyWidget(),
       ),
     );
   }
 
-// -------------------------------- Body Widget -----------------------
+// ! -------------------------------- Body Widget -----------------------
   Widget bodyWidget(){
     return Container(
       padding: const EdgeInsets.all(12),

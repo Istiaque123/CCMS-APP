@@ -3,9 +3,12 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:practice_one/feature/common/navigator.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
 import 'package:practice_one/feature/common/theme.dart';
 import 'package:practice_one/feature/common/useful_methode.dart';
+import 'package:practice_one/pages/inside%20app/views/home_page_screen.dart';
+import 'package:practice_one/pages/personal_info_name_screen.dart';
 
 class PersonalInfoCheck extends ConsumerStatefulWidget {
   const PersonalInfoCheck({super.key});
@@ -61,8 +64,10 @@ class _PersonalInfoCheckState extends ConsumerState<PersonalInfoCheck> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         foregroundColor: ColorsClass.green,
+
         title: const Padding(
           padding:
               EdgeInsets.only(top: 20), // Add top padding for better alignment
@@ -81,8 +86,7 @@ class _PersonalInfoCheckState extends ConsumerState<PersonalInfoCheck> {
         centerTitle: true, // Keeps the title centered
         backgroundColor: Colors.white, // Optional: Adjust background color
       ),
-
-
+      backgroundColor: ColorsClass.white,
       
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
@@ -257,7 +261,9 @@ class _PersonalInfoCheckState extends ConsumerState<PersonalInfoCheck> {
                                 width: 180,
                                 child: CustomSqureBtn(
                                     btnName: 'এডিট করুন', 
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      navigatePushUntillRoot(context, const PersonalInfoNameScreen());
+                                    },
                                     borderSide: true,
                                     borderColor: ColorsClass.green,
                                     elevation: 3,
@@ -269,7 +275,9 @@ class _PersonalInfoCheckState extends ConsumerState<PersonalInfoCheck> {
                                 width: 180,
                                 child: CustomSqureBtn(
                                     btnName: 'প্রোফাইল সম্পন্ন',
-                                     onPressed: () {},
+                                     onPressed: () {
+                                        navigateReplacement(context, const HomePageScreen());
+                                     },
                                      foregroundColor: ColorsClass.white,
                                      backgroundColor: ColorsClass.green,
                                      elevation: 3,

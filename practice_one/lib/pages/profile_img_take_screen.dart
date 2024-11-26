@@ -76,7 +76,9 @@ class ProfileImgTakeScreenState extends ConsumerState<ProfileImgTakeScreen> {
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.green,
+        backgroundColor: ColorsClass.white,
       ),
+       backgroundColor: ColorsClass.white,
       body: Container(
         width: double.infinity,
         height: double.infinity,

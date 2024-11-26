@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:practice_one/feature/common/navigator.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
-import 'package:practice_one/pages/my_home_screen.dart';
+import 'package:practice_one/pages/log_reg_select_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -69,7 +70,7 @@ class SplashScreen extends StatelessWidget {
             foregroundColor: Colors.black, 
             elevation: 5,
             onPressed: (){
-              Navigator.pushReplacement(context, MyHomeScreen.route());
+              navigateReplacement(context, const LogRegSelectScreen());
             },
             ),
           const SizedBox(height: 40), 

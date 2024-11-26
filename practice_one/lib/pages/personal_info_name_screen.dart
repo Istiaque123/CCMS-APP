@@ -5,6 +5,7 @@ import 'package:practice_one/feature/common/hero_section.dart';
 import 'package:practice_one/feature/common/keybord_input_section.dart';
 import 'package:practice_one/feature/common/navigator.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
+import 'package:practice_one/feature/common/theme.dart';
 import 'package:practice_one/feature/common/useful_methode.dart';
 import 'package:practice_one/pages/personal_info_id_scrren.dart';   
 
@@ -72,8 +73,10 @@ class _PersonalInfoNameScreenState extends ConsumerState<PersonalInfoNameScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: Colors.green,
+        foregroundColor: ColorsClass.green,
+         backgroundColor: ColorsClass.white,
       ),
+       backgroundColor: ColorsClass.white,
       body: Container(
         width: double.infinity,
         height: double.infinity,

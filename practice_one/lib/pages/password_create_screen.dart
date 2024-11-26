@@ -4,6 +4,7 @@ import 'package:practice_one/feature/common/hero_section.dart';
 import 'package:practice_one/feature/common/keybord_input_section.dart';
 import 'package:practice_one/feature/common/navigator.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
+import 'package:practice_one/feature/common/theme.dart';
 import 'package:practice_one/feature/common/useful_methode.dart';
 import 'package:practice_one/pages/personal_info_name_screen.dart';
 import 'package:practice_one/utils/normal%20provider/inpute_check_provider.dart';
@@ -42,7 +43,9 @@ class _PasswordCreateScreenState extends ConsumerState<PasswordCreateScreen> {
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.green,
+         backgroundColor: ColorsClass.white,
       ),
+       backgroundColor: ColorsClass.white,
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(12),

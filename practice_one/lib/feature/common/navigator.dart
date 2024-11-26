@@ -11,3 +11,10 @@ void navigatePush(BuildContext context, Widget widget){
     MaterialPageRoute(builder: (context) => widget)
     );
 }
+
+void navigatePushUntillRoot(BuildContext context, Widget widget){
+  Navigator.of(context).pushAndRemoveUntil(
+    MaterialPageRoute(builder: (context) => widget), 
+    (route) => false,
+    );
+}
