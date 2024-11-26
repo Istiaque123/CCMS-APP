@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:practice_one/feature/common/hero_section.dart';
 import 'package:practice_one/feature/common/navigator.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
-import 'package:practice_one/feature/common/theme.dart';
+import 'package:practice_one/feature/common/theme_colors.dart';
 import 'package:practice_one/pages/password_create_screen.dart';
 import 'package:practice_one/utils/auth/otp_auth.dart';
 import 'package:practice_one/utils/normal%20provider/opt_time_provider.dart';

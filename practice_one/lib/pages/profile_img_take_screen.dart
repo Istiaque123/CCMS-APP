@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:practice_one/feature/common/hero_section.dart';
 import 'package:practice_one/feature/common/navigator.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
-import 'package:practice_one/feature/common/theme.dart';
+import 'package:practice_one/feature/common/theme_colors.dart';
 import 'package:practice_one/pages/personal_info_check.dart';
 
 class ProfileImgTakeScreen extends ConsumerStatefulWidget {

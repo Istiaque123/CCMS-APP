@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:practice_one/feature/common/navigator.dart';
 import 'package:practice_one/feature/common/normal_btn.dart';
-import 'package:practice_one/feature/common/theme.dart';
+import 'package:practice_one/feature/common/theme_colors.dart';
 import 'package:practice_one/feature/common/useful_methode.dart';
 import 'package:practice_one/pages/inside%20app/views/home_page_screen.dart';
 import 'package:practice_one/pages/personal_info_name_screen.dart';
@@ -64,7 +64,6 @@ class _PersonalInfoCheckState extends ConsumerState<PersonalInfoCheck> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         foregroundColor: ColorsClass.green,
 
@@ -87,13 +86,15 @@ class _PersonalInfoCheckState extends ConsumerState<PersonalInfoCheck> {
         backgroundColor: Colors.white, // Optional: Adjust background color
       ),
       backgroundColor: ColorsClass.white,
-      
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         child: ConstrainedBox(
           constraints: BoxConstraints(
-            minHeight: MediaQuery.of(context).size.height - kToolbarHeight -
-              MediaQuery.of(context).padding.top, // Ensures the Stack is scrollable
+            minHeight: MediaQuery.of(context).size.height -
+                kToolbarHeight -
+                MediaQuery.of(context)
+                    .padding
+                    .top, // Ensures the Stack is scrollable
           ),
           child: IntrinsicHeight(
             child: Stack(
@@ -135,7 +136,7 @@ class _PersonalInfoCheckState extends ConsumerState<PersonalInfoCheck> {
                               ],
                             ),
                           ),
-        
+
                           // ** Info section
                           const SizedBox(
                             height: 15,
@@ -209,7 +210,7 @@ class _PersonalInfoCheckState extends ConsumerState<PersonalInfoCheck> {
                               )
                             ],
                           ),
-        
+
                           // ? ========================================= Check Btn Section ================================
                           Row(
                             crossAxisAlignment: CrossAxisAlignment
@@ -225,7 +226,7 @@ class _PersonalInfoCheckState extends ConsumerState<PersonalInfoCheck> {
                                   });
                                 },
                               ),
-        
+
                               // Condition text
                               Expanded(
                                 // Ensures the text wraps to the next line
@@ -248,11 +249,13 @@ class _PersonalInfoCheckState extends ConsumerState<PersonalInfoCheck> {
                               ),
                             ],
                           ),
-        
+
                           // ** Info section
-        
-        // ? ------------------------------Btn Section ---------------------------------
-                          const SizedBox(height: 20,),
+
+                          // ? ------------------------------Btn Section ---------------------------------
+                          const SizedBox(
+                            height: 20,
+                          ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -260,38 +263,63 @@ class _PersonalInfoCheckState extends ConsumerState<PersonalInfoCheck> {
                               SizedBox(
                                 width: 180,
                                 child: CustomSqureBtn(
-                                    btnName: 'এডিট করুন', 
-                                    onPressed: () {
-                                      navigatePushUntillRoot(context, const PersonalInfoNameScreen());
-                                    },
-                                    borderSide: true,
-                                    borderColor: ColorsClass.green,
-                                    elevation: 3,
-                                    padding: const EdgeInsets.symmetric(vertical: 10),
-                                    icon: const Icon(CupertinoIcons.arrow_left),
-                                    ),
+                                  btnName: 'এডিট করুন',
+                                  onPressed: () {
+                                    navigatePushUntillRoot(context,
+                                        const PersonalInfoNameScreen());
+                                  },
+                                  borderSide: true,
+                                  borderColor: ColorsClass.green,
+                                  elevation: 3,
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 10),
+                                  icon: const Icon(CupertinoIcons.arrow_left),
+                                ),
                               ),
                               SizedBox(
                                 width: 180,
                                 child: CustomSqureBtn(
                                     btnName: 'প্রোফাইল সম্পন্ন',
-                                     onPressed: () {
-                                        navigateReplacement(context, const HomePageScreen());
-                                     },
-                                     foregroundColor: ColorsClass.white,
-                                     backgroundColor: ColorsClass.green,
-                                     elevation: 3,
-                                     padding: const EdgeInsets.symmetric(vertical: 10)
-                                     ),
+                                    onPressed: () {
+                                      if (checkTik!) {
+                                        navigateReplacement(
+                                            context, const HomePageScreen());
+                                        return;
+                                      }
+
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        const SnackBar(
+                                          content: Text(
+                                            'নিশ্চিত করুন',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                          backgroundColor: Colors.red,
+                                          behavior: SnackBarBehavior.floating,
+                                          margin: EdgeInsets.only(
+                                              bottom: 70, left: 16, right: 16),
+                                          duration: Duration(seconds: 2),
+                                        ),
+                                      );
+                                      return;
+                                    },
+                                    foregroundColor: ColorsClass.white,
+                                    backgroundColor: ColorsClass.green,
+                                    elevation: 3,
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 10)),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 20,),
+                          const SizedBox(
+                            height: 20,
+                          ),
                         ],
                       ),
                     )),
                 // *! Main Section End Here --------------------------------
-        
+
                 //  ** Button Section
               ],
             ),
