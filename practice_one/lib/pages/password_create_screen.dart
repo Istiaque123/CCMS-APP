@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:practice_one/feature/common/hero_section.dart';
-import 'package:practice_one/feature/common/keybord_input_section.dart';
-import 'package:practice_one/feature/common/navigator.dart';
-import 'package:practice_one/feature/common/normal_btn.dart';
-import 'package:practice_one/feature/common/theme_colors.dart';
-import 'package:practice_one/feature/common/useful_methode.dart';
+import 'package:practice_one/common/hero_section.dart';
+import 'package:practice_one/common/keybord_input_section.dart';
+import 'package:practice_one/common/navigator.dart';
+import 'package:practice_one/common/normal_btn.dart';
+import 'package:practice_one/common/constraints/theme_colors.dart';
+import 'package:practice_one/common/useful_methode.dart';
 import 'package:practice_one/pages/personal_info_name_screen.dart';
-import 'package:practice_one/utils/normal%20provider/inpute_check_provider.dart';
+import 'package:practice_one/feature/utils/normal%20provider/inpute_check_provider.dart';
 
 class PasswordCreateScreen extends ConsumerStatefulWidget {
   const PasswordCreateScreen({super.key});

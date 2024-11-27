@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:practice_one/feature/common/hero_section.dart';
-import 'package:practice_one/feature/common/navigator.dart';
-import 'package:practice_one/feature/common/normal_btn.dart';
-import 'package:practice_one/feature/common/theme_colors.dart';
+import 'package:practice_one/common/hero_section.dart';
+import 'package:practice_one/common/navigator.dart';
+import 'package:practice_one/common/normal_btn.dart';
+import 'package:practice_one/common/constraints/theme_colors.dart';
 import 'package:practice_one/pages/phone_num_reg_screen.dart';
 
 class LogRegSelectScreen extends StatefulWidget {

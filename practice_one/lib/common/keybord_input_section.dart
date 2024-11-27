@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:practice_one/feature/common/useful_methode.dart';
+import 'package:practice_one/common/useful_methode.dart';
 
 // StateProvider to manage password visibility
 final visibilityProvider = StateProvider<bool>((ref) => true);

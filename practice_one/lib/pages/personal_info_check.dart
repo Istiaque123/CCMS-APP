@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:practice_one/feature/common/navigator.dart';
-import 'package:practice_one/feature/common/normal_btn.dart';
-import 'package:practice_one/feature/common/theme_colors.dart';
-import 'package:practice_one/feature/common/useful_methode.dart';
+import 'package:practice_one/common/navigator.dart';
+import 'package:practice_one/common/normal_btn.dart';
+import 'package:practice_one/common/constraints/theme_colors.dart';
+import 'package:practice_one/common/useful_methode.dart';
 import 'package:practice_one/pages/inside%20app/views/home_page_screen.dart';
 import 'package:practice_one/pages/personal_info_name_screen.dart';
 
@@ -86,6 +86,8 @@ class _PersonalInfoCheckState extends ConsumerState<PersonalInfoCheck> {
         backgroundColor: Colors.white, // Optional: Adjust background color
       ),
       backgroundColor: ColorsClass.white,
+
+      // ^--------------------------------------------------body Section--------------------------------------------
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         child: ConstrainedBox(

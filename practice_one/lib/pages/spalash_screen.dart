@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:practice_one/feature/common/navigator.dart';
-import 'package:practice_one/feature/common/normal_btn.dart';
+import 'package:practice_one/common/navigator.dart';
+import 'package:practice_one/common/normal_btn.dart';
 import 'package:practice_one/pages/log_reg_select_screen.dart';
 
 class SplashScreen extends StatelessWidget {

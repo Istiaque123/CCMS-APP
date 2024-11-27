@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:practice_one/feature/common/theme_colors.dart';
+import 'package:practice_one/common/constraints/theme_colors.dart';
+import 'package:practice_one/pages/inside%20app/views/home_page_content_screen.dart';
 
-class DncrpAppbarTheme {
+class UIConstrant {
+  // ! -------------------------AppBar-------------------------------
   static AppBar buildAppBar() {
     return AppBar(
       leading: Padding(
@@ -24,4 +26,16 @@ class DncrpAppbarTheme {
       backgroundColor: ColorsClass.appBarColor,
     );
   }
+
+  // !--------------------------List Of Widget---------------------------------
+  static List<Widget> bottomTabBarPages = [
+    Text('List Screen'),
+    Text('profile Screen'),
+    HomePageContentScreen(),
+    Text('notification Screen'),
+    Text('Settings Screen'),
+  ];
+
+
 }
+

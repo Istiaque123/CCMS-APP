@@ -3,10 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:practice_one/feature/common/hero_section.dart';
-import 'package:practice_one/feature/common/navigator.dart';
-import 'package:practice_one/feature/common/normal_btn.dart';
-import 'package:practice_one/feature/common/theme_colors.dart';
+import 'package:practice_one/common/hero_section.dart';
+import 'package:practice_one/common/navigator.dart';
+import 'package:practice_one/common/normal_btn.dart';
+import 'package:practice_one/common/constraints/theme_colors.dart';
 import 'package:practice_one/pages/personal_info_check.dart';
 
 class ProfileImgTakeScreen extends ConsumerStatefulWidget {

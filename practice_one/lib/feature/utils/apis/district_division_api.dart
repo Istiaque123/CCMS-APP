@@ -5,7 +5,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:practice_one/model/distirct_address.dart';
 import 'package:practice_one/model/division_address.dart';
 import 'package:http/http.dart' as http;
-import 'package:practice_one/utils/apis/base_api.dart';
+import 'package:practice_one/feature/utils/apis/base_api.dart';
 
 // ------------------------------------------
 final districtDevisionApiProvider = StateProvider<DistrictDivisionAPI>((ref) {

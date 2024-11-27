@@ -131,7 +131,9 @@ class CustomSqureBtn extends StatelessWidget {
   final Color borderColor;
   final double borderRadius;
   final EdgeInsetsGeometry padding;
-  final Icon? icon; // Optional icon parameter
+  final Widget? icon; 
+  final double iconWidth;
+  final double fontSize;
 
   const CustomSqureBtn({
     super.key,
@@ -147,6 +149,8 @@ class CustomSqureBtn extends StatelessWidget {
     this.borderRadius = 10,
     this.padding = const EdgeInsets.symmetric(vertical: 15),
     this.icon, // Accept an optional icon
+    this.iconWidth = 8,
+    this.fontSize = 20
   });
 
   @override
@@ -176,13 +180,13 @@ class CustomSqureBtn extends StatelessWidget {
         children: [
           if (icon != null) ...[
             icon!, // Display the icon if provided
-            const SizedBox(width: 8), // Add spacing between icon and text
+             SizedBox(width: iconWidth), // Add spacing between icon and text
           ],
           Text(
             btnName,
             style: TextStyle(
               fontWeight: FontWeight.w400,
-              fontSize: 20,
+              fontSize: fontSize,
               fontFamily: 'Kalpurush',
               color: foregroundColor,
             ),

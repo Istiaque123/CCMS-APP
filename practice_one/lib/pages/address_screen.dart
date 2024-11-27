@@ -1,15 +1,15 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:practice_one/feature/common/hero_section.dart';
-import 'package:practice_one/feature/common/keybord_input_section.dart';
-import 'package:practice_one/feature/common/navigator.dart';
-import 'package:practice_one/feature/common/normal_btn.dart';
-import 'package:practice_one/feature/common/theme_colors.dart';
-import 'package:practice_one/feature/common/useful_methode.dart';
+import 'package:practice_one/common/hero_section.dart';
+import 'package:practice_one/common/keybord_input_section.dart';
+import 'package:practice_one/common/navigator.dart';
+import 'package:practice_one/common/normal_btn.dart';
+import 'package:practice_one/common/constraints/theme_colors.dart';
+import 'package:practice_one/common/useful_methode.dart';
 import 'package:practice_one/feature/notifiers/district_division_notifier.dart';
 import 'package:practice_one/pages/profession_screen.dart';
-import 'package:practice_one/utils/apis/district_division_api.dart';
+import 'package:practice_one/feature/utils/apis/district_division_api.dart';
 
 class AddressScreen extends ConsumerStatefulWidget {
   const AddressScreen({super.key});

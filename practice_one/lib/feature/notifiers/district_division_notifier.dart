@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:practice_one/model/distirct_address.dart';
 import 'package:practice_one/model/division_address.dart';
-import 'package:practice_one/utils/apis/district_division_api.dart';
+import 'package:practice_one/feature/utils/apis/district_division_api.dart';
 
 
 
