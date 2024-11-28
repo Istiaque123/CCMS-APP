@@ -5,7 +5,6 @@ import 'package:practice_one/common/constraints/theme_colors.dart';
 class OtpScaffold {
   
   static otpScaffoldMsg({required BuildContext context, required String msg}){
-    final Size size = mediaSize(context: context);
     
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
