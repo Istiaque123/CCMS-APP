@@ -7,7 +7,7 @@ import 'package:practice_one/common/constraints/ui_constrant.dart';
 import 'package:practice_one/common/normal_btn.dart';
 import 'package:practice_one/common/constraints/theme_colors.dart';
 import 'package:practice_one/common/useful_methode.dart';
-import 'package:practice_one/feature/utils/normal%20provider/complain_providers.dart';
+import 'package:practice_one/feature/normal%20provider/complain_providers.dart';
 import 'package:practice_one/model/dummy%20data/complain_dummy_data.dart';
 
 class HomePageContentScreen extends ConsumerStatefulWidget {
@@ -29,8 +29,6 @@ class _HomePageContentScreenState extends ConsumerState<HomePageContentScreen> {
   @override
   void initState() {
     super.initState();
-    // TODO: implement initState
-
     complainLists = ComplainDummyData.complainListsModified;
     final Map<String, dynamic> testMap = ComplainDummyData.infoList;
     // print(complainLists.length);

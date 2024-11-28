@@ -7,7 +7,7 @@ import 'package:practice_one/common/navigator.dart';
 import 'package:practice_one/common/normal_btn.dart';
 import 'package:practice_one/common/constraints/theme_colors.dart';
 import 'package:practice_one/common/useful_methode.dart';
-import 'package:practice_one/feature/notifiers/district_division_notifier.dart';
+import 'package:practice_one/feature/utils/api%20notifiers/district_division_notifier.dart';
 import 'package:practice_one/pages/profession_screen.dart';
 import 'package:practice_one/feature/utils/apis/district_division_api.dart';
 

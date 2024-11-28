@@ -7,7 +7,7 @@ import 'package:practice_one/common/normal_btn.dart';
 import 'package:practice_one/common/constraints/theme_colors.dart';
 import 'package:practice_one/common/useful_methode.dart';
 import 'package:practice_one/pages/personal_info_name_screen.dart';
-import 'package:practice_one/feature/utils/normal%20provider/inpute_check_provider.dart';
+import 'package:practice_one/feature/normal%20provider/inpute_check_provider.dart';
 
 class PasswordCreateScreen extends ConsumerStatefulWidget {
   const PasswordCreateScreen({super.key});
@@ -57,7 +57,7 @@ class _PasswordCreateScreenState extends ConsumerState<PasswordCreateScreen> {
               children: [
                 const HeroSection(
                   heroMsg: "আপনার পাসওয়ার্ড প্রদান করুন",
-                  msgWeight: 300,
+                  msgWidth: 300,
                   msgHeight: 90),
                   const SizedBox( height: 100,),
                 SizedBox(

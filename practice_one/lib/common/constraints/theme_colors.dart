@@ -12,4 +12,5 @@ class ColorsClass {
   static Color greayBrown = const Color(0xff7C7C7C);
   static Color orange = const Color(0xffFF7A00);
   static Color cardColor = const Color(0xffB6D3FF);
+  static Color redLigt = const Color(0xffF95454);
 }

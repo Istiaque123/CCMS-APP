@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 class HeroSection extends StatelessWidget {
   final String heroMsg;
   final double msgHeight;
-  final double msgWeight;
+  final double msgWidth;
+
 
   const  HeroSection({
     super.key, required this.heroMsg, 
     required this.msgHeight,
-    this.msgWeight = 350.00
+    this.msgWidth = 350.00
     });
 
   @override
@@ -29,7 +30,7 @@ class HeroSection extends StatelessWidget {
         ),
         SizedBox(height: msgHeight,),
         SizedBox(
-          width: msgWeight,
+          width: msgWidth,
           child: Text(
             heroMsg,
             textAlign: TextAlign.center,

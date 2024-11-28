@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:practice_one/common/general_app_bar.dart';
 import 'package:practice_one/common/hero_section.dart';
+import 'package:practice_one/common/constraints/media_quri_size.dart';
 import 'package:practice_one/common/navigator.dart';
 import 'package:practice_one/common/normal_btn.dart';
 import 'package:practice_one/common/constraints/theme_colors.dart';
@@ -12,22 +14,33 @@ class LogRegSelectScreen extends StatefulWidget {
 }
 
 class LogRegSelectScreenState extends State<LogRegSelectScreen> {
+
+  // ^-------------------------------Variables Attributes------------------------------------
+
+
+  // ^-------------------------------Variables Attributes------------------------------------
+
+  // &----------------build Methode------------------------------
   @override
   Widget build(BuildContext context) {
+    final Size size = mediaSize(context: context);
+
+
+
+
+
     return Scaffold(
-      appBar: AppBar(
-        foregroundColor: Colors.green,
-         backgroundColor: ColorsClass.white,
-      ),
-       backgroundColor: ColorsClass.white,
+      appBar: GeneralAppBar.buildAppBar(),
+
+      backgroundColor: ColorsClass.white,
       body: SingleChildScrollView(
-        child: bodyWidget(),
+        child: bodyWidget(size: size),
       ),
     );
   }
 
 // ! -------------------------------- Body Widget -----------------------
-  Widget bodyWidget(){
+  Widget bodyWidget({required final Size size}){
     return Container(
       padding: const EdgeInsets.all(12),
       child: Column(
@@ -35,34 +48,34 @@ class LogRegSelectScreenState extends State<LogRegSelectScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [ 
 
-          const HeroSection(
+          HeroSection(
             heroMsg:'জাতীয় ভোক্তা অধিকার সংরক্ষন অধিদপ্তর', 
-            msgHeight:  80),
-            const SizedBox(
-              height: 150,
+            msgHeight:  size.height* 0.08
+            ),
+             SizedBox(
+              height: size.height * 0.18,
             ),
             // ---------------------Reg BTN-------------------------
             SizedBox(
-              width: 370,
+              width: size.width * 0.85,
               child: CustomBtn(
                 btnName: 'রেজিস্ট্রেশন', 
                 backgroundColor: const Color(0xff15803D),
                 foregroundColor: Colors.white,
-                minimumSize: const Size(300, 0),
                 elevation: 5,
                 onPressed: (){
                   navigatePush(context, const PhoneNumRegScreen());
                 }
                 ),
             ),
-              const SizedBox(height: 20,),
+               SizedBox(height: size.height * 0.02,),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    width: 48,
+                    width: size.width *0.2,
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: Colors.black,
@@ -81,7 +94,7 @@ class LogRegSelectScreenState extends State<LogRegSelectScreen> {
                     ),
                   const SizedBox(width: 15,),
                    Container(
-                    width: 48,
+                    width: size.width *0.2,
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: Colors.black,

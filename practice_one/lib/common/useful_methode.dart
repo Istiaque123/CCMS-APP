@@ -11,6 +11,22 @@ validator(String? value, String msg) {
   return null;
 }
 
+// !----------------------------------Phone Number check-----------------------------------
+
+bool isValidBDPhoneNumber(String phoneNumber) {
+  final RegExp bdPhoneRegExp = RegExp(r'^(?:\+8801|01)[3-9]\d{8}$');
+  return bdPhoneRegExp.hasMatch(phoneNumber);
+}
+
+
+validatorPhnNum(String? value, String msg) {
+  
+  if (!isValidBDPhoneNumber(value!)) {
+    return msg;
+  }
+  return null;
+}
+
 // !---------------------------------------------------------------------------------------
 
 OutlineInputBorder myBorderStyle() {

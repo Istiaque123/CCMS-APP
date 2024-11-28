@@ -2,24 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
 class OtpAuth extends StatelessWidget {
-  OtpAuth({super.key});
+  final TextEditingController optTextEditingController;
+  final double width;
+  final double height;
+  OtpAuth({
+    super.key,
+    required this.height,
+    required this.width,
+    required this.optTextEditingController
+    });
 
   @override
   Widget build(BuildContext context) {
+
     return otpPin();
   }
 
   Widget otpPin(){
     return Pinput(
       length: 6,
-      defaultPinTheme: _defaultPinTheme,
+      controller: optTextEditingController,
+      defaultPinTheme: _defaultPinTheme(),
       keyboardType: TextInputType.number,
     );
   }
 
-  final _defaultPinTheme = PinTheme(
-    width: 56,
-    height: 60,
+  PinTheme _defaultPinTheme ()=> PinTheme(
+    
+    width: width,
+    height: height,
     textStyle: const TextStyle(
       fontSize: 26,
       color: Colors.grey,
