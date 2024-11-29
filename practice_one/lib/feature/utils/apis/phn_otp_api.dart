@@ -2,11 +2,12 @@ import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
+import 'package:fpdart/fpdart.dart';
+import 'package:practice_one/feature/utils/constrains/phne_otp_api_constrains.dart';
+
+
 
 // !--------------------------Abstruct Class----------------------------------------
-import 'package:fpdart/fpdart.dart';
-import 'package:practice_one/feature/utils/constrains/phne_otp_constrains.dart';
-
 abstract class IPhnOTPApi {
   Future<Either<String, String>> getOtpNum(String phnNum);
   Future<Either<String, String>> confirmOtp(String otp, String phnNum);
