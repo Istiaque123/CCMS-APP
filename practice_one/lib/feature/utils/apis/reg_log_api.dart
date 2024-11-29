@@ -30,7 +30,7 @@ class RegLogApi implements IRegLogApi {
           ));
 
           if (response.statusCode == 201) {
-            final Map<String, dynamic> resData = jsonDecode(response.body);
+            // final Map<String, dynamic> resData = jsonDecode(response.body);
             return right('successfully');
           }
 
